@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'package:cadastro_usuario/api/user_service.dart';
 import 'package:cadastro_usuario/data/dummy_users.dart';
 import 'package:cadastro_usuario/models/user.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +6,10 @@ import 'package:flutter/material.dart';
 class UserProvider with ChangeNotifier {
   Map<String, User> _items = {...DUMMY_USERS};
 
-  List<User> get all {
-    return [..._items.values];
+  final service = UserService();
+
+  Future<List<User>> get all async {
+    return service.getAllUsers();
   }
 
   int get count {
@@ -28,27 +29,17 @@ class UserProvider with ChangeNotifier {
     if (user.id != null &&
         user.id.trim().isNotEmpty &&
         _items.containsKey(user.id)) {
-      _items.update(user.id, (_) => user);
+      return service.updateUser(user.id, user);
     } else {
       //adicionar
-      final id = Random().nextDouble().toString();
-      _items.putIfAbsent(
-        id,
-        () => User(
-          id: id,
-          name: user.name,
-          email: user.email,
-          password: user.password,
-          avatarUrl: user.avatarUrl,
-        ),
-      );
+      return service.saveUser(user);
     }
     notifyListeners();
   }
 
   void remove(User user) {
     if (user != null && user.id != null) {
-      _items.remove(user.id);
+      service.deleteUser(user.id);
     }
     notifyListeners();
   }

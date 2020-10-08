@@ -22,4 +22,16 @@ const DUMMY_USERS = {
     password: 'teste',
     avatarUrl: null,
   ),
+  '4': const User(
+    id: "5f7e380cd899cd03e8b4ec47",
+    name: "Iago Santos",
+    email: "email@teste.com",
+    password: "1234",
+  ),
+  '5': const User(
+    id: "5f7e6e18d899cd03e8b4ec61",
+    name: "Iago Santos",
+    email: "iago@teste.com.br",
+    password: "12345",
+  )
 };

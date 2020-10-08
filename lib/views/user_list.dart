@@ -1,3 +1,4 @@
+import 'package:cadastro_usuario/api/user_service.dart';
 import 'package:cadastro_usuario/components/user_tile.dart';
 import 'package:cadastro_usuario/provider/users.dart';
 import 'package:cadastro_usuario/routes/app_routes.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class UserList extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final UserProvider users = Provider.of(context, listen: true);

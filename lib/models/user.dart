@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class User {
@@ -15,4 +18,5 @@ class User {
     @required this.password,
     this.avatarUrl,
   });
+
 }
