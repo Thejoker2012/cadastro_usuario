@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class User {
@@ -8,15 +5,25 @@ class User {
   final String name;
   final String email;
   final String password;
-
-  final String avatarUrl;
+  final String dataNascimento;
 
   const User({
     this.id,
     @required this.name,
     @required this.email,
     @required this.password,
-    this.avatarUrl,
+    @required this.dataNascimento,
   });
 
+  static User fromMap(Map<String, dynamic> map) {
+    if (map == null) return null;
+
+    return User(
+      id: map['_id'],
+      name: map['name'],
+      email: map['email'],
+      password: map['password'],
+      dataNascimento: map['dataNascimento'],
+    );
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:cadastro_usuario/provider/users.dart';
 import 'package:cadastro_usuario/routes/app_routes.dart';
+import 'package:cadastro_usuario/views/login_form.dart';
 import 'package:cadastro_usuario/views/user_form.dart';
 import 'package:cadastro_usuario/views/user_list.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(title: 'Lista de Usuários', routes: {
         AppRoutes.HOME: (_) => UserList(),
-        AppRoutes.USER_FORM: (_) => UserForm()
+        AppRoutes.USER_FORM: (_) => UserForm(),
+        AppRoutes.LOGIN_FORM: (_) => Login(),
       }),
     );
   }

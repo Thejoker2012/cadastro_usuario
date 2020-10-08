@@ -19,7 +19,7 @@ class _UserFormState extends State<UserForm> {
       _formData['name'] = user.name;
       _formData['email'] = user.email;
       _formData['password'] = user.password;
-      _formData['avatarUrl'] = user.avatarUrl;
+      _formData['dataNascimento'] = user.dataNascimento;
     }
   }
 
@@ -50,7 +50,7 @@ class _UserFormState extends State<UserForm> {
                       name: _formData['name'],
                       email: _formData['email'],
                       password: _formData['password'],
-                      avatarUrl: _formData['avatarUrl']),
+                      dataNascimento: _formData['dataNascimento']),
                 );
                 Navigator.of(context).pop();
               }
@@ -104,9 +104,9 @@ class _UserFormState extends State<UserForm> {
                 onSaved: (value) => _formData['password'] = value,
               ),
               TextFormField(
-                initialValue: _formData['avatarUrl'],
-                decoration: InputDecoration(labelText: 'URL do Avatar'),
-                onSaved: (value) => _formData['avatarUrl'] = value,
+                initialValue: _formData['dataNascimento'],
+                decoration: InputDecoration(labelText: 'Data nascimento'),
+                onSaved: (value) => _formData['dataNascimento'] = value,
               )
             ],
           ),
